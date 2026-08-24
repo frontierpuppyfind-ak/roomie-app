@@ -518,3 +518,129 @@ into:
 Find the right room. Find the right people.
 ⭐ If You Like Roomie
 Star the repository, follow the project, and contribute ideas as the application develops.
+
+
+
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+mkdir -p "$ROOT/docs/images"
+
+cat > "$ROOT/README.md" <<'README_EOF'
+# 🏠 Roomie
+
+**Find the right room. Find the right people.**
+
+Roomie is a Kotlin + Jetpack Compose Android roommate marketplace where users can list available rooms, search for housing, post In Search Of (ISO) listings, find potential roommate matches, save listings, and message other users.
+
+> 🚧 In development — MVP.
+
+## 🖼️ App Mockup
+
+<p align="center">
+  <img src="docs/images/roomie-app-mockup.png" alt="Roomie app mockup" width="100%">
+</p>
+
+## ✨ Core Features
+
+- 🏠 Room listings with photos, rent, amenities, rules, and availability
+- 🔎 Search and filters for location, price, move-in date, and preferences
+- 👥 In Search Of (ISO) listings for people looking for rooms
+- 🤝 Roommate compatibility matching
+- 💬 In-app messaging
+- ❤️ Saved rooms and potential roommates
+- 🗺️ Map-based room discovery
+- 🔔 Notifications
+- 🛡️ Reporting, blocking, verification, and safety features
+
+## 🧰 Tech Stack
+
+- Kotlin
+- Jetpack Compose
+- Material 3
+- MVVM
+- StateFlow
+- Coroutines
+- Navigation Compose
+- Firebase Authentication
+- Cloud Firestore
+- Firebase Storage
+- Firebase Cloud Messaging
+- Coil
+
+## 🚀 Setup
+
+1. Clone the repository.
+2. Open it in Android Studio.
+3. Add the Firebase Android app using package name `com.example.roomie`.
+4. Enable Authentication, Firestore, Storage, and Cloud Messaging.
+5. Download `google-services.json`.
+6. Put it in `app/google-services.json`.
+7. Sync Gradle.
+8. Build with:
+
+```bash
+./gradlew assembleDebug
+```
+
+Run tests with:
+
+```bash
+./gradlew test
+```
+
+## 📂 Structure
+
+```text
+app/src/main/java/com/example/roomie/
+├── data/
+│   ├── firebase/
+│   ├── model/
+│   └── repository/
+├── navigation/
+├── ui/
+│   ├── auth/
+│   ├── home/
+│   ├── search/
+│   ├── map/
+│   ├── listings/
+│   ├── iso/
+│   ├── messages/
+│   ├── saved/
+│   ├── profile/
+│   └── settings/
+├── util/
+└── MainActivity.kt
+```
+
+## 🛣️ Roadmap
+
+- [ ] Authentication
+- [ ] Profiles
+- [ ] Room listings
+- [ ] Room search and filters
+- [ ] ISO listings
+- [ ] Favorites
+- [ ] Messaging
+- [ ] Notifications
+- [ ] Roommate matching
+- [ ] Reporting/blocking
+- [ ] Safety tools
+- [ ] Automated testing
+- [ ] Public beta
+
+## 🛡️ Safety
+
+Roomie should protect users by avoiding public exposure of exact residential addresses and by providing reporting/blocking tools. Public release should include review of applicable housing, privacy, safety, and user-generated-content requirements.
+
+## 📄 License
+
+Choose a project license before public distribution.
+
+---
+
+**Roomie — Find the right room. Find the right people.**
+README_EOF
+
+echo "README.md generated at: $ROOT/README.md"
